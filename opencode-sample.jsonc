@@ -5,6 +5,9 @@
   "default_agent": "work",
   "share": "disabled",
   "lsp": true,
+  "compaction": {
+    "auto": false
+  },
   "instructions": [
     "AGENTS.md",
     "machine-policy.local.md"
