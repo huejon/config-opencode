@@ -11,7 +11,7 @@ Personal rules for this agent machine. Project rules live in the project `AGENTS
 
 - Do normal local work directly: inspect, edit local setup, run tests, write work artifacts, and use local subagents.
 - Stop only for proven blockers, external side effects, production/billing changes, or required user/product decisions after inspection.
-- Commit/push directly only when task and repo/local policy allow.
+- Commit/push: active task wins. Do it only when the active instruction allows, repo/local policy allows, and validation evidence is recorded.
 - Do not store secrets in memory, prompts, logs, or final summaries.
 
 
