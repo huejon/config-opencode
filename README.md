@@ -1,6 +1,6 @@
 # config-opencode
 
-Shared OpenCode configuration: global operating rules, agents, commands, references, prompts, and plugins.
+Shared OpenCode configuration: global operating rules, agents, commands, curated skills, references, prompts, and plugins.
 
 ## Install / update on a machine
 
@@ -21,6 +21,7 @@ Tracked:
 - `AGENTS.md`
 - `agents/`
 - `commands/`
+- `skills/`
 - `references/`
 - `prompts/`
 - `plugins/`
@@ -35,4 +36,22 @@ Ignored/local:
 
 ## Machine-local policy
 
-Host/account-specific operating rules do not belong in `AGENTS.md`. Put them in an ignored local note such as `machine-policy.local.md`, then adapt the active machine config/process as needed.
+Host/account-specific operating rules do not belong in `AGENTS.md`. Put them in ignored local notes such as `machine-policy.local.md` or another `*.local.md` file, then load those files from the host's ignored `opencode.jsonc` via `instructions`.
+
+Example:
+
+```jsonc
+{
+  "instructions": [
+    "AGENTS.md",
+    "machine-policy.local.md",
+    "github.local.md"
+  ]
+}
+```
+
+The repo's `.gitignore` ignores `*.local.md`, so each machine can keep local account, path, MCP, or permission notes without syncing them to other hosts.
+
+## Skills boundary
+
+This repo tracks only the curated OpenCode skills in `skills/`. Do not bulk-copy Hermes skills into OpenCode. Hermes may keep skills about how to operate OpenCode; OpenCode itself should stay small and use only the curated OpenCode skills plus commands/agents/references.
