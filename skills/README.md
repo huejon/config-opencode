@@ -1,12 +1,15 @@
 # OpenCode skills
 
-This directory is intentionally tracked, but currently empty of active global skills.
+Tracked global OpenCode skills restored from the curated initial OpenCode setup and subsequent improvements.
 
-For this setup, prefer:
+Active shared skills:
 
-1. `commands/` for user-facing workflows.
-2. `agents/` for internal roles and subagents.
-3. `references/` for shared procedures and operating notes.
-4. Project-local `.opencode/skills/` only when a repo truly needs a narrow reusable skill.
+- `source-verification` — source-first verification discipline for APIs, docs, installed packages, and imports.
+- `figma-source-verification` — Figma/MCP source-first rule before design implementation.
+- `finish-the-job` — completion discipline: do not stop before real verification.
+- `long-workflow-awareness` — avoid blind blocking on long tests, servers, daemons, and expensive runs.
+- `work-ledger` — durable work state in `.opencode/works/<slug>/`.
+- `opencode-research` — evidence-backed OpenCode behavior research.
+- `skill-builder` — minimal, tested OpenCode skill authoring discipline.
 
-Do not bulk-copy Hermes skills or old `.agents` skills here. If a future behavior really belongs as an OpenCode skill, add a minimal, tested skill with a clear trigger, output contract, failure modes, and rollback path.
+Use skills as internal support for commands/agents; the user's normal interface should remain `work` and `verify`.
