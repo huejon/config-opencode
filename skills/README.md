@@ -1,8 +1,8 @@
 # OpenCode skills
 
-Tracked global OpenCode skills restored from the curated initial OpenCode setup and subsequent improvements.
+Tracked global OpenCode skills.
 
-Active shared skills:
+Active:
 
 - `source-verification` — source-first verification discipline for APIs, docs, installed packages, and imports.
 - `figma-source-verification` — Figma/MCP source-first rule before design implementation.
@@ -12,4 +12,4 @@ Active shared skills:
 - `opencode-research` — evidence-backed OpenCode behavior research.
 - `skill-builder` — minimal, tested OpenCode skill authoring discipline.
 
-Use skills as internal support for commands/agents; the user's normal interface should remain `work` and `verify`.
+Skills support commands/agents. User interface stays `work` and `verify`.

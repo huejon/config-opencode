@@ -8,27 +8,22 @@ compatibility: opencode
 
 ## Trigger
 
-Use this skill whenever the user provides a Figma link, Figma node, design handoff, or asks to match Figma.
+Use for Figma links, nodes, handoffs, or design matching.
 
 ## Procedure
 
-1. Before coding or visual inference, verify that the current Figma source connection can return real data for the referenced file/node.
-2. Prefer a live Figma MCP/source call that returns metadata, design context, node data, or inspectable tokens.
-3. If the Figma source is unavailable, empty, disconnected, or points to the wrong node, stop and ask the user to fix the connection/open/select the file or node.
-4. Do not substitute screenshots, memory, or guesswork for unavailable Figma node data.
-5. Once source data is available, record what source was checked and what it proves before implementing.
+1. Before coding, verify live Figma/MCP data for the file/node.
+2. Prefer metadata, design context, node data, or inspectable tokens.
+3. If unavailable/empty/wrong, stop and ask for connection/file/node fix.
+4. Do not replace node data with screenshots, memory, or guesses.
+5. Record source checked and proof before implementation.
 
 ## Boundaries
 
-- This skill does not grant access to Figma by itself.
-- If no Figma MCP/source tool is configured in the current environment, report that as the blocker.
+- This skill does not grant Figma access.
+- If no Figma MCP/source tool exists, report that blocker.
 - Do not invent measurements or colors.
 
 ## Output contract
 
-Return:
-
-- Figma source checked;
-- whether it returned node/design data;
-- blocker if unavailable;
-- next action.
+Return source checked, data status, blocker if any, next action.

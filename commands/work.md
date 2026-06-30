@@ -1,5 +1,5 @@
 ---
-description: Start, continue, check, or hand off repo work using `.opencode/works/<slug>/` state.
+description: Start, continue, check, or hand off work using `.opencode/works/<slug>/` state.
 agent: work
 ---
 
@@ -15,4 +15,4 @@ print(Path('~/.config/opencode/references/work-command.md').expanduser().read_te
 PY
 ```
 
-Then follow it. Use markdown handoff files, not conversation compaction, for continuity. Keep the user response short.
+Then follow it. Use markdown handoffs, not chat compaction. Keep the user response short.

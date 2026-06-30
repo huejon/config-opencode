@@ -6,4 +6,6 @@ agent: work
 Claim:
 $ARGUMENTS
 
-Choose the smallest command or inspection that proves or falsifies the claim. Run it. Return a verification report: Claim, Command, Directory, Exit code, Relevant output, What this proves, What this does not prove, Next verification if needed.
+Run the smallest command/inspection that proves or falsifies the claim.
+
+Return: Claim, Command, Directory, Exit code, Relevant output, Proof, Unknowns, Next check if needed.

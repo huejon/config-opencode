@@ -6,15 +6,15 @@ compatibility: opencode
 
 # Source Verification
 
-## Use when
+## Trigger
 
 - Tool/API/model/provider behavior may have changed.
-- Changing OpenCode or Hermes config.
-- Importing knowledge from Claude Code, old sessions, or another machine.
-- Public docs, memory, examples, and installed behavior might diverge.
-- Dependency API claims affect implementation details.
+- OpenCode/Hermes config changes.
+- Imported knowledge may be stale.
+- Docs, examples, memory, and installed behavior may diverge.
+- Dependency/API shape affects implementation.
 
-## Source priority
+## Source order
 
 1. Current local source/config/files.
 2. Installed package type definitions or implementation files.
@@ -24,22 +24,22 @@ compatibility: opencode
 6. Imported memory/session/plans.
 7. Model prior knowledge.
 
-When public docs and installed package files disagree, treat installed package files/type definitions as authoritative for the current machine and record the divergence.
+If docs and installed files disagree, trust installed files for this machine and record the divergence.
 
 ## Procedure
 
-1. Check installed version or current source.
-2. Inspect installed type definitions/implementation when API shape matters.
-3. Check official docs when behavior is source-dependent.
-4. Run the smallest local experiment that proves or falsifies the assumption.
-5. For risky API/config changes, run or request a skeptical review pass against the exact source evidence.
-6. Record source, date checked, version, confidence, operational consequence, and re-check path.
+1. Check installed version/current source.
+2. Inspect types/implementation when shape matters.
+3. Check official docs when needed.
+4. Run the smallest proving experiment.
+5. For risky config/API changes, get skeptical review against exact evidence.
+6. Record source, date, version, confidence, consequence, and re-check path.
 
 ## Stop rules
 
-Stop if current docs and installed behavior conflict and the safe choice is not obvious.
-Stop if a claim would require guessing from old plans, screenshots, or memory without live/current source.
+Stop if docs and installed behavior conflict and the safe choice is unclear.
+Stop if only stale plans, screenshots, or memory support the claim.
 
 ## Output contract
 
-Return sources checked, facts, caveats, recommendation, and re-check command/URL.
+Return sources, facts, caveats, recommendation, and re-check command/URL.

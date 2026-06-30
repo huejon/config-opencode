@@ -1,16 +1,16 @@
 ---
-description: Create or verify a private `.opencode` overlay for the current repository
+description: Create or verify a private `.opencode` overlay for the current repo.
 ---
 
-Create or verify a project `.opencode` overlay in the current repo without editing versioned project files.
+Create/verify a private project `.opencode` overlay without editing versioned project files.
 
-Preferred helper path if installed on this machine:
+Prefer helper if installed:
 
 ```bash
 ~/.config/opencode-learning/scripts/create-opencode-local-overlay.sh
 ```
 
-If that helper script is missing, run the equivalent inline setup:
+If missing, run inline setup:
 
 ```bash
 root="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
@@ -30,16 +30,16 @@ mkdir -p .opencode/{memory,works,skills,commands,agents,prompts}
 JSON
 ```
 
-Then verify:
+Verify:
 
 ```bash
 test -d .opencode
 opencode debug config
 ```
 
-Output contract:
+Return:
 
-- Report overlay path.
-- Report whether `.opencode/` exists and is visible to OpenCode.
-- Report whether `opencode debug config` succeeds.
+- Overlay path.
+- Whether `.opencode/` exists and is visible to OpenCode.
+- Whether `opencode debug config` succeeds.
 - Do not edit versioned `.gitignore` unless the user explicitly asks.

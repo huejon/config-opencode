@@ -1,8 +1,8 @@
 ---
-description: Run local Hermes + OpenCode readiness checks for this machine
+description: Run local Hermes + OpenCode readiness checks for this machine.
 ---
 
-Run a local readiness pass for the current machine. Prefer the helper script if present; otherwise run the checks inline.
+Run local readiness checks. Prefer helper; otherwise run inline checks.
 
 Procedure:
 
@@ -12,7 +12,7 @@ Procedure:
 ~/.config/opencode-learning/scripts/opencode-local-readiness.sh
 ```
 
-2. If the helper script is missing, create `~/.config/opencode-learning/audits/` and run equivalent checks manually:
+2. If missing, create `~/.config/opencode-learning/audits/` and run equivalent checks:
 
 ```bash
 hermes --version
@@ -28,7 +28,7 @@ opencode models opencode-go --refresh
 opencode run --agent work --model openai/gpt-5.5 'Respond with exactly: OPENCODE_LOCAL_READINESS_OK'
 ```
 
-3. Also validate any local copy artifact if present:
+3. Validate local copy artifact if present:
 
 ```bash
 python - <<'PY'
@@ -46,9 +46,9 @@ if os.path.exists(p):
 PY
 ```
 
-Output contract:
+Return:
 
-- Report commands run and exit codes.
-- Report the audit file path if the helper script was used.
+- Commands and exit codes.
+- Audit file path if helper was used.
 - Treat optional missing integrations from `hermes doctor` as notes unless they block the current setup goal.
 - If any required check fails, diagnose briefly and update the setup progress ledger.

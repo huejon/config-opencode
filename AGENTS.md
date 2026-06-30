@@ -1,6 +1,6 @@
-# Global OpenCode Operating Rules
+# Global OpenCode Rules
 
-These are personal/global rules for this dedicated agent machine. Project-specific rules belong in the project's own `AGENTS.md` or private `.opencode/**` overlay.
+Personal rules for this agent machine. Project rules live in the project `AGENTS.md` or private `.opencode/**` overlay.
 
 ## Language
 
@@ -9,48 +9,49 @@ These are personal/global rules for this dedicated agent machine. Project-specif
 
 ## Autonomy and boundaries
 
-- Do not ask permission for normal local work: inspect files, edit local setup, run tests, create work artifacts, or use local subagents.
-- Stop and report only for real blockers, external side effects, production/billing mutations, or decisions that require the user after options are investigated.
+- Do normal local work directly: inspect, edit local setup, run tests, write work artifacts, and use local subagents.
+- Stop only for proven blockers, external side effects, production/billing changes, or required user/product decisions after inspection.
+- Commit/push directly only when task and repo/local policy allow.
 - Do not store secrets in memory, prompts, logs, or final summaries.
 
 
 ## Work style
 
-- Prefer current source, command output, and official docs over stale memory or model knowledge.
-- Verify every completion claim with a command and exit code when possible.
-- Do not repeat the same failing command more than twice unless the hypothesis, code, or environment changed.
+- Prefer current source, command output, and official docs over memory or priors.
+- Verify completion claims with command, directory, exit code, and relevant output when possible.
+- Do not repeat a failing command more than twice unless something changed.
 - Keep changes small, diffable, reversible, and scoped to the task.
 
 ## Skills and commands
 
-- Do not copy Hermes skills into OpenCode. Encode recurring OpenCode behavior in commands, agents, `AGENTS.md`, or references instead.
-- The user-facing interface should stay small: prefer `opencode run --command work -- "..."` and `opencode run --command verify -- "..."` over asking the user to name agents or skills.
-- If explicitly asked to create or change an OpenCode skill, first justify why a command/agent/reference is not enough; define the exact trigger, minimal procedure, output contract, failure modes, sandbox test, and rollback path.
-- When learning OpenCode behavior, record installed version, sources checked, minimal experiment, exit code, confidence, operational consequence, and re-check command under `~/.config/opencode-learning/`.
+- Do not copy Hermes skills into OpenCode. Put recurring behavior in commands, agents, `AGENTS.md`, or references.
+- Keep the user interface small: `opencode run --command work -- "..."` and `opencode run --command verify -- "..."`.
+- If asked to create/change a skill, first justify why a command/agent/reference is insufficient. Define trigger, minimal procedure, output, failure modes, sandbox test, and rollback.
+- For OpenCode learning, record version, sources, minimal experiment, exit code, confidence, consequence, and re-check command under `~/.config/opencode-learning/`.
 
-## Subagent orchestration
+## Subagents
 
-- For any local code/setup change, review may use `review-kimi`, `review-qwen`, and `review-glm`; start multiple independent review passes in parallel when useful.
-- Before claiming any local code/setup change complete, run multiple independent judges in parallel when useful; always include at least `judge-qwen` and `judge-glm` after evidence/reviews exist, and include `judge-kimi` when useful.
-- Debug also uses Kimi `debug` agents only; multiple independent debug passes may run in parallel.
-- Independent review, judge, debug, red-team, and blue-team passes should be started in parallel; do not run them one-by-one unless a real dependency exists.
-- Swarm is a `work` command behavior, not a separate user-facing skill. Use a small panel by default and scale to a swarm when task breadth warrants it.
-- `*-qwen` and `*-glm` agents are high-signal panel agents: use a few of each, and do not exceed 12 total Qwen/GLM agents in one phase unless explicitly requested.
-- `*-kimi`, `debug`, `red-team`, and `blue-team` agents are swarm-capable: dozens of parallel Kimi agents are allowed for broad review/debug/red-blue-team work when warranted or requested.
-- Swarm outputs must be clustered: dedupe repeated findings, preserve minority reports, and summarize consensus vs disagreement before acting.
+- For local code/setup changes, review with `review-kimi`, `review-qwen`, and/or `review-glm` when useful.
+- Before completion, run judges after evidence/reviews; always include at least `judge-qwen` and `judge-glm`, plus `judge-kimi` when useful.
+- Debug uses Kimi `debug` agents only.
+- Start independent review/judge/debug/red-team/blue-team passes in parallel unless a dependency is real.
+- Swarm is `work` behavior, not a user-facing skill. Default small; scale only when breadth warrants it.
+- Keep Qwen/GLM panels small; do not exceed 12 total Qwen/GLM agents in one phase unless explicitly requested.
+- Kimi/debug/red-team/blue-team can fan out for broad tasks.
+- Cluster swarm outputs: dedupe, preserve minority reports, summarize consensus/disagreement, then act.
 
-## Setup-specific rule
+## Setup
 
-During Hermes/OpenCode setup, use `~/.config/opencode-learning/**` for evidence and do not dump the operating book into active prompts.
-
-
-## Figma source-first rule
-
-When a task includes a Figma link or asks to match Figma, verify that a live Figma source/MCP connection can return data for the referenced file/node before coding or visual inference. If the source is unavailable or disconnected, stop and ask for the connection to be fixed; do not guess from screenshots or memory.
+During Hermes/OpenCode setup, use `~/.config/opencode-learning/**` for evidence. Do not dump the operating book into active prompts.
 
 
-## Continuity and handoff
+## Figma source first
 
-- Do not rely on conversation compaction as the handoff mechanism.
+For Figma links or design matching, verify live Figma/MCP data for the file/node before coding. If unavailable, stop and ask for the connection/file/node fix. Do not infer from screenshots or memory.
+
+
+## Continuity
+
+- Do not rely on conversation compaction for handoff.
 - For non-trivial work, keep state in `.opencode/works/<work-name>/`.
 - Before stopping, switching sessions, or losing context, update the work `handoff.md`.
