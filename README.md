@@ -2,6 +2,14 @@
 
 Shared OpenCode configuration: global operating rules, agents, commands, curated skills, references, prompts, and plugins.
 
+## Practical Use
+
+This repo is shared OpenCode config. Clone or pull it into `~/.config/opencode`, then copy `opencode-sample.jsonc` to local `opencode.jsonc`.
+
+Keep `machine-policy.local.md`, `.opencode/WORKS.md`, and `.opencode/works/` local-only. Use `commands/work` as the main interface. For non-trivial work, keep notes in `.opencode/works/<slug>/` and update `.opencode/WORKS.md`.
+
+Commit and push shared prompt, agent, command, or skill changes only after validation. Do not commit local policy, work notes, secrets, sessions, logs, or host-specific config.
+
 ## Install / update on a machine
 
 ```bash
