@@ -4,6 +4,10 @@
   "small_model": "opencode-go/minimax-m3",
   "default_agent": "work",
   "share": "disabled",
+  "instructions": [
+    "AGENTS.md",
+    "machine-policy.local.md"
+  ],
   "permission": {
     "*": "allow",
     "question": "deny",

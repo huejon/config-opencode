@@ -12,6 +12,8 @@ cp opencode-sample.jsonc opencode.jsonc
 
 Then edit `opencode.jsonc` for that host: server bind address, MCP endpoints, absolute paths, and any machine-local permissions.
 
+If you keep host/account-specific operating rules, create `machine-policy.local.md`; `opencode-sample.jsonc` includes it in `instructions` so OpenCode will load it when present.
+
 ## Tracked vs local
 
 Tracked:
