@@ -2,6 +2,7 @@
 description: Reproduces failures, traces root cause, and proposes minimal verified fix paths.
 mode: subagent
 model: opencode-go/kimi-k2.7-code
+variant: max
 permission:
   "*": allow
   question: deny

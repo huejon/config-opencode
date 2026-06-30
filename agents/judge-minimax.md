@@ -2,6 +2,7 @@
 description: MiniMax M3 completion judge; pair with judge-deepseek for independent verdicts.
 mode: subagent
 model: opencode-go/minimax-m3
+variant: max
 permission:
   "*": allow
   question: deny

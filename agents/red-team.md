@@ -2,6 +2,7 @@
 description: Attacks security, data integrity, rollback, external side-effect, and operational risks.
 mode: subagent
 model: opencode-go/kimi-k2.7-code
+variant: max
 permission:
   "*": allow
   question: deny

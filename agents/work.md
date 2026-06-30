@@ -2,6 +2,7 @@
 description: Primary local work agent. Finishes local tasks with evidence, Portuguese reports, and no external side effects unless asked.
 mode: primary
 model: openai/gpt-5.5
+variant: auto
 permission:
   "*": allow
   question: deny

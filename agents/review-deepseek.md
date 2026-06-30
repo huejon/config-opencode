@@ -2,6 +2,7 @@
 description: DeepSeek V4 Pro reviewer for local diffs/setup artifacts; independent parallel pass.
 mode: subagent
 model: opencode-go/deepseek-v4-pro
+variant: max
 permission:
   "*": allow
   question: deny

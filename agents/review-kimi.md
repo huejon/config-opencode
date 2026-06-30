@@ -2,6 +2,7 @@
 description: Kimi reviewer for local diffs/setup artifacts; independent parallel pass.
 mode: subagent
 model: opencode-go/kimi-k2.7-code
+variant: max
 permission:
   "*": allow
   question: deny

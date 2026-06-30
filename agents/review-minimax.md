@@ -2,6 +2,7 @@
 description: MiniMax M3 reviewer for local diffs/setup artifacts; independent parallel pass.
 mode: subagent
 model: opencode-go/minimax-m3
+variant: max
 permission:
   "*": allow
   question: deny

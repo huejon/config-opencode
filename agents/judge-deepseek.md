@@ -2,6 +2,7 @@
 description: DeepSeek V4 Pro completion judge; pair with judge-minimax for independent verdicts.
 mode: subagent
 model: opencode-go/deepseek-v4-pro
+variant: max
 permission:
   "*": allow
   question: deny

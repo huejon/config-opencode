@@ -2,6 +2,7 @@
 description: Triage red-team and review findings, accepting valid risks and rejecting speculative overengineering.
 mode: subagent
 model: opencode-go/kimi-k2.7-code
+variant: max
 permission:
   "*": allow
   question: deny

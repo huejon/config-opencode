@@ -2,6 +2,7 @@
 description: GLM reviewer for local diffs/setup artifacts; independent parallel pass.
 mode: subagent
 model: opencode-go/glm-5.2
+variant: max
 permission:
   "*": allow
   question: deny

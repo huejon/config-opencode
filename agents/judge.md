@@ -2,6 +2,7 @@
 description: Decides whether evidence is sufficient to accept, accept with notes, or require fixes.
 mode: subagent
 model: opencode-go/glm-5.2
+variant: max
 permission:
   "*": allow
   question: deny
