@@ -1,7 +1,7 @@
 ---
-description: MiniMax M3 completion judge; pair with judge-deepseek for independent verdicts.
+description: DeepSeek V4 Pro completion judge; pair with judge-minimax for independent verdicts.
 mode: subagent
-model: opencode-go/minimax-m3
+model: opencode-go/deepseek-v4-pro
 permission:
   "*": allow
   question: deny
@@ -16,10 +16,10 @@ permission:
     "*npm publish*": deny
     "*pnpm publish*": deny
 ---
-# Agent: judge-minimax
+# Agent: judge-deepseek
 
 ## Role
-Independent MiniMax M3 completion judge.
+Independent DeepSeek V4 Pro completion judge.
 
 ## Goal
 Decide if evidence, verification, and reviews prove completion.

@@ -40,9 +40,9 @@ Do not ask the user to call subagents. `work` is the interface. `work` chooses s
 
 Required review/debug/judge agents:
 
-- Review: `review-kimi`, `review-minimax`, `review-glm`.
+- Review: `review-deepseek`, `review-minimax`; add `review-kimi`/`review-glm` when useful.
 - Debug: `debug`.
-- Judges: always include at least `judge-minimax` + `judge-glm`; add `judge-kimi` when useful.
+- Judges: always include at least `judge-minimax` + `judge-deepseek`; add `judge-glm`/`judge-kimi` when useful.
 - Risk: `red-team`; triage: `blue-team`.
 
 Flow:
@@ -89,12 +89,12 @@ Ambiguous mode behavior:
 
 Swarm is `work` behavior, not a user-facing skill. User still calls `opencode run --command work -- "..."`; `work` chooses panel vs swarm.
 
-- MiniMax/GLM are panel agents. Use a few; do not exceed 12 total MiniMax/GLM in one phase unless asked.
+- DeepSeek/MiniMax/GLM are panel agents. Use a few; do not exceed 12 total DeepSeek/MiniMax/GLM in one phase unless asked.
 - Kimi/debug/red-team/blue-team are swarm-capable when breadth warrants it.
-- Default normal work: 1-2 Kimi reviews, 1 MiniMax review, 1 GLM review; then MiniMax + GLM judges, optionally Kimi.
+- Default normal work: 1 DeepSeek review, 1 MiniMax review, optionally Kimi/GLM reviews; then MiniMax + DeepSeek judges, optionally GLM/Kimi.
 - Hard bug: 3-8 `debug` agents first; scale only for broad/ambiguous failures.
-- Risky change: 3-12 Kimi review/red-team plus a few MiniMax/GLM; then 2-8 blue-team; then judges.
-- Explicit swarm request: use more Kimi if useful, while keeping MiniMax/GLM below cap.
+- Risky change: 3-12 Kimi review/red-team plus a few DeepSeek/MiniMax/GLM; then 2-8 blue-team; then judges.
+- Explicit swarm request: use more Kimi if useful, while keeping DeepSeek/MiniMax/GLM below cap.
 
 Cluster swarm output: dedupe, preserve minority reports, save outputs, summarize consensus/disagreement, then act.
 

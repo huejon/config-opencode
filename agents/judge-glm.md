@@ -1,5 +1,5 @@
 ---
-description: GLM completion judge; pair with judge-minimax for independent verdicts.
+description: GLM completion judge; optional independent verdict with DeepSeek/MiniMax.
 mode: subagent
 model: opencode-go/glm-5.2
 permission:

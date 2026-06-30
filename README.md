@@ -43,6 +43,7 @@ Concept boundaries:
 
 - Commands are the user-facing entry points. They define repeatable workflows such as `work` and `verify`.
 - Agents are role definitions used by commands or OpenCode sessions. Keep them focused: worker, reviewer, judge, debugger.
+- Current required panel: `review-deepseek`/`judge-deepseek` on DeepSeek V4 Pro plus `review-minimax`/`judge-minimax` on MiniMax M3.
 - Skills are reusable domain procedures that an agent can load when the task needs specialized steps. Keep them curated; do not bulk-copy Hermes skills into OpenCode.
 - Prompts and references are supporting material. Prompts shape behavior; references hold longer operating docs that should not live inline in every agent.
 

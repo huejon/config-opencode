@@ -32,12 +32,12 @@ Personal rules for this agent machine. Project rules live in the project `AGENTS
 
 ## Subagents
 
-- For local code/setup changes, review with `review-kimi`, `review-minimax`, and/or `review-glm` when useful.
-- Before completion, run judges after evidence/reviews; always include at least `judge-minimax` and `judge-glm`, plus `judge-kimi` when useful.
+- For local code/setup changes, review with `review-deepseek`, `review-minimax`, and optionally `review-kimi`/`review-glm` when useful.
+- Before completion, run judges after evidence/reviews; always include at least `judge-minimax` and `judge-deepseek`, plus `judge-glm`/`judge-kimi` when useful.
 - Debug uses Kimi `debug` agents only.
 - Start independent review/judge/debug/red-team/blue-team passes in parallel unless a dependency is real.
 - Swarm is `work` behavior, not a user-facing skill. Default small; scale only when breadth warrants it.
-- Keep MiniMax/GLM panels small; do not exceed 12 total MiniMax/GLM agents in one phase unless explicitly requested.
+- Keep DeepSeek/MiniMax/GLM panels small; do not exceed 12 total DeepSeek/MiniMax/GLM agents in one phase unless explicitly requested.
 - Kimi/debug/red-team/blue-team can fan out for broad tasks.
 - Cluster swarm outputs: dedupe, preserve minority reports, summarize consensus/disagreement, then act.
 

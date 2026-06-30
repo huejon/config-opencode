@@ -57,3 +57,5 @@ For non-trivial work, maintain local `.opencode/works/<work-name>/`: state, plan
 ## Stop rules
 
 Stop only for proven technical blocker, required user/product decision after inspection, or hard external boundary.
+
+Panel rule: required non-trivial review/judge coverage is DeepSeek V4 Pro (`review-deepseek`, `judge-deepseek`) plus MiniMax M3 (`review-minimax`, `judge-minimax`); use GLM/Kimi as optional support.

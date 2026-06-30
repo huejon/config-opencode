@@ -10,3 +10,5 @@ Compact seed for the `work` primary agent. Do not assume this file is loaded unt
 - Verification: claim, command, directory, exit code, relevant output, proof, remaining unknowns.
 - Delivery gates: for larger feature work, preserve requirement traceability and review/QA gates from `references/delivery-gates.md`.
 - Stop: proven blocker, external boundary, or required user/product decision after inspection.
+
+Panel rule: required non-trivial review/judge coverage is DeepSeek V4 Pro (`review-deepseek`, `judge-deepseek`) plus MiniMax M3 (`review-minimax`, `judge-minimax`); use GLM/Kimi as optional support.

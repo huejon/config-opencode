@@ -1,5 +1,5 @@
 ---
-description: Kimi completion judge; optional independent verdict with MiniMax/GLM.
+description: Kimi completion judge; optional independent verdict with DeepSeek/MiniMax.
 mode: subagent
 model: opencode-go/kimi-k2.7-code
 permission:
