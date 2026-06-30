@@ -9,7 +9,7 @@ Shared OpenCode configuration: global operating rules, agents, commands, curated
 This repo is the shared OpenCode config. Clone or pull it into `~/.config/opencode`, then copy `opencode-sample.jsonc` to the machine-local `opencode.jsonc`.
 
 ```bash
-git clone git@github.com:huejon/config-opencode.git ~/.config/opencode
+git clone <repo-url> ~/.config/opencode
 cd ~/.config/opencode
 cp opencode-sample.jsonc opencode.jsonc
 ```
@@ -44,7 +44,7 @@ Concept boundaries:
 - Commands are the user-facing entry points. They define repeatable workflows such as `work` and `verify`.
 - Agents are role definitions used by commands or OpenCode sessions. Keep them focused: worker, reviewer, judge, debugger.
 - Current required panel: `review-deepseek`/`judge-deepseek` on DeepSeek V4 Pro plus `review-minimax`/`judge-minimax` on MiniMax M3.
-- Skills are reusable domain procedures that an agent can load when the task needs specialized steps. Keep them curated; do not bulk-copy Hermes skills into OpenCode.
+- Skills are reusable domain procedures that an agent can load when the task needs specialized steps. Keep them curated; do not bulk-copy external or legacy assistant skills into OpenCode.
 - Prompts and references are supporting material. Prompts shape behavior; references hold longer operating docs that should not live inline in every agent.
 
 For non-trivial work, keep notes in `.opencode/works/<slug>/` and update `.opencode/WORKS.md`. Those work ledgers are local-only and should not be committed.
@@ -52,7 +52,7 @@ For non-trivial work, keep notes in `.opencode/works/<slug>/` and update `.openc
 ## Install / update on a machine
 
 ```bash
-git clone git@github.com:huejon/config-opencode.git ~/.config/opencode
+git clone <repo-url> ~/.config/opencode
 cd ~/.config/opencode
 cp opencode-sample.jsonc opencode.jsonc
 ```
@@ -118,4 +118,4 @@ The repo's `.gitignore` ignores `*.local.md`, so each machine can keep local acc
 
 ## Skills boundary
 
-This repo tracks only the curated OpenCode skills in `skills/`; runtime OpenCode may also discover external skills from its supported external skill directories. Do not bulk-copy Hermes skills into this repo: put recurring OpenCode behavior in commands, agents, `AGENTS.md`, or references unless a curated skill is justified.
+This repo tracks only the curated OpenCode skills in `skills/`; runtime OpenCode may also discover external skills from its supported external skill directories. Do not bulk-copy external or legacy assistant skills into this repo: put recurring OpenCode behavior in commands, agents, `AGENTS.md`, or references unless a curated skill is justified.

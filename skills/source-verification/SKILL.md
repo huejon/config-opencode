@@ -9,7 +9,7 @@ compatibility: opencode
 ## Trigger
 
 - Tool/API/model/provider behavior may have changed.
-- OpenCode/Hermes config changes.
+- OpenCode config changes.
 - Imported knowledge may be stale.
 - Docs, examples, memory, and installed behavior may diverge.
 - Dependency/API shape affects implementation.

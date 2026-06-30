@@ -25,7 +25,7 @@ Personal rules for this agent machine. Project rules live in the project `AGENTS
 
 ## Skills and commands
 
-- Do not copy Hermes skills into OpenCode. Put recurring behavior in commands, agents, `AGENTS.md`, or references.
+- Do not bulk-copy external or legacy assistant skills into OpenCode. Put recurring behavior in commands, agents, `AGENTS.md`, or references.
 - Keep the user interface small: `opencode run --command work -- "..."` and `opencode run --command verify -- "..."`.
 - If asked to create/change a skill, first justify why a command/agent/reference is insufficient. Define trigger, minimal procedure, output, failure modes, sandbox test, and rollback.
 - For OpenCode learning, record version, sources, minimal experiment, exit code, confidence, consequence, and re-check command under `~/.config/opencode-learning/`.
@@ -43,7 +43,7 @@ Personal rules for this agent machine. Project rules live in the project `AGENTS
 
 ## Setup
 
-During Hermes/OpenCode setup, use `~/.config/opencode-learning/**` for evidence. Do not dump the operating book into active prompts.
+During OpenCode setup and learning, use `~/.config/opencode-learning/**` for evidence. Do not dump the operating book into active prompts.
 
 ## Curated input boundary
 

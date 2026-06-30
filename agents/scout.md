@@ -10,4 +10,4 @@ permission:
 ---
 # Agent: scout disabled
 
-Disabled for rafiki. Use primary `work` unless explicitly re-enabled.
+Disabled by default. Use primary `work` unless explicitly re-enabled.

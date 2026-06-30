@@ -54,9 +54,20 @@ Flow:
 
 Parallelism: start independent passes together. Serialize only for real dependencies: blue-team after findings; judges after evidence/reviews/triage.
 
-## Planning vs execution
+## Request modes
 
 Classify the current request before changing files.
+
+Conversation mode indicators:
+
+- User asks for pure chat, explanation, advice, status, or a short answer.
+- No plan artifact, code/config edit, command run, subagent pass, or local execution is needed to satisfy the request.
+
+Conversation mode behavior:
+
+- Reply directly in Portuguese using a pragmatic, direct, concise style with no wall of text, no praise padding, and no AI-sounding prose.
+- Do not create/update `.opencode/works/` artifacts, edit files, run commands, or invoke subagents unless needed to answer accurately.
+- If the answer depends on current local state and cannot be answered safely from context, switch only to the minimum inspection needed; if inspection becomes planning or execution, reclassify before proceeding.
 
 Planning mode indicators:
 
@@ -100,7 +111,12 @@ Cluster swarm output: dedupe, preserve minority reports, save outputs, summarize
 
 ## Embedded procedures
 
-Do not ask the user to call skills. Do not copy Hermes skills into OpenCode. Put recurring behavior in commands, agents, `AGENTS.md`, or references.
+Do not ask the user to call skills. Do not bulk-copy external or legacy assistant skills into OpenCode. Put recurring behavior in commands, agents, `AGENTS.md`, or references.
+
+- Evidence before edits: inspect current source/config/files, relevant symbols, schemas, command output, or official docs before changing files.
+- Anti-invention rule: do not invent files, symbols, APIs, imports, config keys, config shapes, commands, endpoints, or behavior. If it is not observed in current source/config/docs/output, treat it as unknown.
+- Assumption stop: if missing evidence or ambiguity materially changes scope, risk, portability, security, data integrity, rollback, or external side effects, stop and ask for the specific decision/source instead of editing from assumptions.
+- User-work preservation: inspect diffs/status before editing when user work may exist; preserve observed user work unless intentionally changing it for the task.
 
 - Delivery gates: for feature work larger than a small local edit, use `references/delivery-gates.md`; keep PRD/spec/task/review/QA gates proportional to risk.
 - Curated knowledge: for research, methodology, prompt architecture, agent architecture, or harness work, consult current operator-provided curated inputs when available and relevant; follow the current operator-provided methodology note for new research when available; if unavailable or not relevant, record the exception and continue with source verification; apply only distilled guidance to OpenCode, never bulk copies.

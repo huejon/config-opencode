@@ -1,8 +1,8 @@
 ---
-description: Run local Hermes + OpenCode readiness checks for this machine.
+description: Run local OpenCode readiness checks for this machine.
 ---
 
-Run local readiness checks. Prefer helper; otherwise run inline checks.
+Run local OpenCode readiness checks. Prefer helper; otherwise run inline checks.
 
 Procedure:
 
@@ -15,8 +15,6 @@ Procedure:
 2. If missing, create `~/.config/opencode-learning/audits/` and run equivalent checks:
 
 ```bash
-hermes --version
-hermes doctor
 command -v opencode
 opencode --version
 opencode auth list
@@ -50,5 +48,5 @@ Return:
 
 - Commands and exit codes.
 - Audit file path if helper was used.
-- Treat optional missing integrations from `hermes doctor` as notes unless they block the current setup goal.
+- Treat optional missing integrations as notes unless they block the current setup goal.
 - If any required check fails, diagnose briefly and update the setup progress ledger.

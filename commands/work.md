@@ -1,5 +1,5 @@
 ---
-description: Start, continue, check, or hand off work using `.opencode/works/<slug>/` state.
+description: Handle work requests in conversation, planning, or execution mode, using `.opencode/works/<slug>/` state only when needed.
 agent: work
 ---
 
@@ -15,4 +15,4 @@ print(Path('~/.config/opencode/references/work-command.md').expanduser().read_te
 PY
 ```
 
-Then follow it. Use markdown handoffs, not chat compaction. Keep the user response short.
+Then follow it. Classify the request as conversation, planning, or execution mode before acting. Use markdown handoffs, not chat compaction. Keep the user response short.
