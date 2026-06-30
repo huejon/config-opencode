@@ -8,6 +8,7 @@ package-lock.json
 bun.lock
 
 # Runtime state / local data
+.opencode/
 sessions/
 logs/
 cache/
@@ -31,3 +32,6 @@ credentials/
 # Host-specific policy notes
 machine-policy.local.md
 *.local.md
+
+# Local work board lives under .opencode/WORKS.md and is not tracked.
+WORKS.md

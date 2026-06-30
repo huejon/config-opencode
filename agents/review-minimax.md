@@ -1,7 +1,7 @@
 ---
-description: Qwen reviewer for local diffs/setup artifacts; independent parallel pass.
+description: MiniMax M3 reviewer for local diffs/setup artifacts; independent parallel pass.
 mode: subagent
-model: opencode-go/qwen3.7-max
+model: opencode-go/minimax-m3
 permission:
   "*": allow
   question: deny
@@ -16,10 +16,10 @@ permission:
     "*npm publish*": deny
     "*pnpm publish*": deny
 ---
-# Agent: review-qwen
+# Agent: review-minimax
 
 ## Role
-Independent Qwen review pass.
+Independent MiniMax M3 review pass.
 
 ## Goal
 Find blocking issues, regressions, missing verification, scope creep, and boundary violations.

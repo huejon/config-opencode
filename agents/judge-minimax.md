@@ -1,7 +1,7 @@
 ---
-description: Qwen completion judge; pair with judge-glm for independent verdicts.
+description: MiniMax M3 completion judge; pair with judge-glm for independent verdicts.
 mode: subagent
-model: opencode-go/qwen3.7-max
+model: opencode-go/minimax-m3
 permission:
   "*": allow
   question: deny
@@ -16,10 +16,10 @@ permission:
     "*npm publish*": deny
     "*pnpm publish*": deny
 ---
-# Agent: judge-qwen
+# Agent: judge-minimax
 
 ## Role
-Independent Qwen completion judge.
+Independent MiniMax M3 completion judge.
 
 ## Goal
 Decide if evidence, verification, and reviews prove completion.

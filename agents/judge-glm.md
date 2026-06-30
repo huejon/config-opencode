@@ -1,5 +1,5 @@
 ---
-description: GLM completion judge; pair with judge-qwen for independent verdicts.
+description: GLM completion judge; pair with judge-minimax for independent verdicts.
 mode: subagent
 model: opencode-go/glm-5.2
 permission:
