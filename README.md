@@ -4,11 +4,44 @@ Shared OpenCode configuration: global operating rules, agents, commands, curated
 
 ## Practical Use
 
-This repo is shared OpenCode config. Clone or pull it into `~/.config/opencode`, then copy `opencode-sample.jsonc` to local `opencode.jsonc`.
+### Using this repo
 
-Keep `machine-policy.local.md`, `.opencode/WORKS.md`, and `.opencode/works/` local-only. Use `commands/work` as the main interface. For non-trivial work, keep notes in `.opencode/works/<slug>/` and update `.opencode/WORKS.md`.
+This repo is the shared OpenCode config. Clone or pull it into `~/.config/opencode`, then copy `opencode-sample.jsonc` to the machine-local `opencode.jsonc`.
+
+```bash
+git clone git@github.com:huejon/config-opencode.git ~/.config/opencode
+cd ~/.config/opencode
+cp opencode-sample.jsonc opencode.jsonc
+```
+
+Then edit `opencode.jsonc` for that host: server bind address, MCP endpoints, absolute paths, and any machine-local permissions.
+
+Keep host/account-specific operating rules in ignored local files such as `machine-policy.local.md` or another `*.local.md`, then load them from the host's ignored `opencode.jsonc` via `instructions`.
 
 Commit and push shared prompt, agent, command, or skill changes only after validation. Do not commit local policy, work notes, secrets, sessions, logs, or host-specific config.
+
+### Using commands, skills, and agents
+
+Use `commands/work` as the main interface for repo work:
+
+```bash
+opencode run --command work -- "<task>"
+```
+
+Use `commands/verify` when you need an independent check of a concrete claim:
+
+```bash
+opencode run --command verify -- "<claim to verify>"
+```
+
+Concept boundaries:
+
+- Commands are the user-facing entry points. They define repeatable workflows such as `work` and `verify`.
+- Agents are role definitions used by commands or OpenCode sessions. Keep them focused: worker, reviewer, judge, debugger.
+- Skills are reusable domain procedures that an agent can load when the task needs specialized steps. Keep them curated; do not bulk-copy Hermes skills into OpenCode.
+- Prompts and references are supporting material. Prompts shape behavior; references hold longer operating docs that should not live inline in every agent.
+
+For non-trivial work, keep notes in `.opencode/works/<slug>/` and update `.opencode/WORKS.md`. Those work ledgers are local-only and should not be committed.
 
 ## Install / update on a machine
 
@@ -38,6 +71,8 @@ Tracked:
 Ignored/local:
 
 - `opencode.jsonc`
+- `machine-policy.local.md` and other `*.local.md` files
+- `.opencode/WORKS.md` and `.opencode/works/`
 - sessions/logs/cache/db files
 - credentials/secrets
 - package manager artifacts and `node_modules/`
