@@ -18,7 +18,7 @@ Personal rules for this agent machine. Project rules live in the project `AGENTS
 ## Work style
 
 - Prefer current source, command output, and official docs over memory or priors.
-- For research, methodology, prompt architecture, agent architecture, or harness work, consult this machine's curated `ai.md` knowledge index at `/var/home/core/workspace/jonloureiro/ai.md/knowledge/INDEX.md` before external research when available; if unavailable or not relevant, record that exception and proceed with documented source verification.
+- For research, methodology, prompt architecture, agent architecture, or harness work, consult current operator-provided curated inputs before external research when available and relevant; if unavailable or not relevant, record that exception and proceed with documented source verification.
 - Verify completion claims with command, directory, exit code, and relevant output when possible.
 - Do not repeat a failing command more than twice unless something changed.
 - Keep changes small, diffable, reversible, and scoped to the task.
@@ -45,12 +45,12 @@ Personal rules for this agent machine. Project rules live in the project `AGENTS
 
 During Hermes/OpenCode setup, use `~/.config/opencode-learning/**` for evidence. Do not dump the operating book into active prompts.
 
-## Curated knowledge boundary
+## Curated input boundary
 
-- On this machine, `/var/home/core/workspace/jonloureiro/ai.md` is the curated knowledge and renewal-harness repository; active OpenCode agents, commands, skills, prompts, and references live here in `~/.config/opencode`.
-- A knowledge-curation cron in `ai.md` maintains research and `knowledge/INDEX.md`.
-- A separate config-application cron in this repo may read curated `ai.md` findings and apply only small operational changes here.
-- Do not bulk-copy `ai.md/knowledge` into prompts or config; distill rules and cite the source path when behavior changes.
+- Curated research, methodology notes, and renewal-harness outputs are external operator-owned inputs; active OpenCode agents, commands, skills, prompts, and references live here in `~/.config/opencode`.
+- External curation automation may maintain research and freshness classification outside this repo.
+- Separate config-application automation in this repo may read operator-provided curated findings and apply only small operational changes here.
+- Do not bulk-copy external knowledge stores into prompts or config; distill rules and cite the source of any behavior-changing guidance when appropriate.
 
 
 ## Figma source first

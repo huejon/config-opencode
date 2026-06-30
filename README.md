@@ -78,16 +78,16 @@ Notable references:
 
 - `references/work-command.md` — `/work` operating contract.
 - `references/delivery-gates.md` — PRD/spec/task/review/QA gates distilled from retired project-local prompt artifacts.
-- `references/curated-knowledge.md` — boundary and usage rules for applying curated `ai.md` knowledge without bulk-copying it into OpenCode.
+- `references/curated-knowledge.md` — boundary and usage rules for applying external curated inputs without bulk-copying them into OpenCode.
 
-## Curated knowledge source
+## External curated inputs
 
-The repository `/var/home/core/workspace/jonloureiro/ai.md` holds curated research and renewal-harness knowledge. This config repo should use that knowledge by reading `ai.md/knowledge/INDEX.md`, then distilling only the operational guidance needed for active OpenCode behavior.
+This config repo can be informed by operator-owned curated research, methodology notes, or renewal-harness outputs that live outside the repository. Those inputs are external context, not repo-to-repo dependencies. Distill only the operational guidance needed for active OpenCode behavior.
 
 Recurring responsibility is split:
 
-- `ai.md` knowledge-curation cron: maintains curated research, freshness/value classification, and harness docs.
-- `config-opencode` application cron: runs here, reads curated `ai.md` findings, and updates only active OpenCode artifacts when needed.
+- External curation automation: maintains research, freshness/value classification, and harness docs outside this repo.
+- `config-opencode` application automation: runs here, may read operator-provided curated findings, and updates only active OpenCode artifacts when needed.
 
 Ignored/local:
 

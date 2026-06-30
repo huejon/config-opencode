@@ -103,7 +103,7 @@ Cluster swarm output: dedupe, preserve minority reports, save outputs, summarize
 Do not ask the user to call skills. Do not copy Hermes skills into OpenCode. Put recurring behavior in commands, agents, `AGENTS.md`, or references.
 
 - Delivery gates: for feature work larger than a small local edit, use `references/delivery-gates.md`; keep PRD/spec/task/review/QA gates proportional to risk.
-- Curated knowledge: for research, methodology, prompt architecture, agent architecture, or harness work, read this machine's `/var/home/core/workspace/jonloureiro/ai.md/knowledge/INDEX.md` first when available; follow its current methodology note for new research; if unavailable or not relevant, record the exception and continue with source verification; apply only distilled guidance to OpenCode, never bulk copies.
+- Curated knowledge: for research, methodology, prompt architecture, agent architecture, or harness work, consult current operator-provided curated inputs when available and relevant; follow the current operator-provided methodology note for new research when available; if unavailable or not relevant, record the exception and continue with source verification; apply only distilled guidance to OpenCode, never bulk copies.
 - Source uncertainty: check current source/config, installed version, docs if needed, and smallest proving experiment.
 - Long task: state run, duration risk, stop criteria, and progress path before broad tests/watchers/daemons/scans.
 - Non-trivial work: maintain `.opencode/works/<slug>/`, `handoff.md`, and `.opencode/WORKS.md`.

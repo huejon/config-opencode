@@ -45,7 +45,7 @@ Classify the request before editing.
 - **Execution mode**: the user asks to fix, implement, update, refactor, configure, run, verify, continue, or otherwise make the local change. Execute without asking for permission for routine local, reversible steps. Ask only for proven blockers, destructive/irreversible choices, external side effects, production/billing/deploy/publish, credentials, or genuine product decisions after inspection.
 - **Ambiguous mode**: inspect first. If inspection makes the safe default clear, proceed in that mode. If still ambiguous and the next step would materially change scope, stop with the specific decision needed.
 
-Use the prompt-engineering D.A.R.T.E. lesson from `ai.md`: Discovery and Architecture are planning; Redaction, Test, and Enhance are execution only after the request or active instruction allows implementation. Do not jump from Discovery into Redaction just because a plausible solution exists.
+Use the prompt-engineering D.A.R.T.E. lesson from external curated inputs: Discovery and Architecture are planning; Redaction, Test, and Enhance are execution only after the request or active instruction allows implementation. Do not jump from Discovery into Redaction just because a plausible solution exists.
 
 ## Verification policy
 
