@@ -20,6 +20,8 @@ Keep host/account-specific operating rules in ignored local files such as `machi
 
 Commit and push shared prompt, agent, command, or skill changes only after validation. Do not commit local policy, work notes, secrets, sessions, logs, or host-specific config.
 
+When tracked concepts, paths, or boundaries change, update this README in the same change.
+
 ### Using commands, skills, and agents
 
 For human work, open OpenCode in the repo first:
@@ -75,6 +77,16 @@ Notable references:
 
 - `references/work-command.md` — `/work` operating contract.
 - `references/delivery-gates.md` — PRD/spec/task/review/QA gates distilled from retired project-local prompt artifacts.
+- `references/curated-knowledge.md` — boundary and usage rules for applying curated `ai.md` knowledge without bulk-copying it into OpenCode.
+
+## Curated knowledge source
+
+The repository `/var/home/core/workspace/jonloureiro/ai.md` holds curated research and renewal-harness knowledge. This config repo should use that knowledge by reading `ai.md/knowledge/INDEX.md`, then distilling only the operational guidance needed for active OpenCode behavior.
+
+Recurring responsibility is split:
+
+- `ai.md` knowledge-curation cron: maintains curated research, freshness/value classification, and harness docs.
+- `config-opencode` application cron: runs here, reads curated `ai.md` findings, and updates only active OpenCode artifacts when needed.
 
 Ignored/local:
 
@@ -105,4 +117,4 @@ The repo's `.gitignore` ignores `*.local.md`, so each machine can keep local acc
 
 ## Skills boundary
 
-This repo tracks only the curated OpenCode skills in `skills/`. Do not bulk-copy Hermes skills into OpenCode. Hermes may keep skills about how to operate OpenCode; OpenCode itself should stay small and use only the curated OpenCode skills plus commands/agents/references.
+This repo tracks only the curated OpenCode skills in `skills/`; runtime OpenCode may also discover external skills from its supported external skill directories. Do not bulk-copy Hermes skills into this repo: put recurring OpenCode behavior in commands, agents, `AGENTS.md`, or references unless a curated skill is justified.
