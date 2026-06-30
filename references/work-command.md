@@ -102,6 +102,7 @@ Cluster swarm output: dedupe, preserve minority reports, save outputs, summarize
 
 Do not ask the user to call skills. Do not copy Hermes skills into OpenCode. Put recurring behavior in commands, agents, `AGENTS.md`, or references.
 
+- Delivery gates: for feature work larger than a small local edit, use `references/delivery-gates.md`; keep PRD/spec/task/review/QA gates proportional to risk.
 - Source uncertainty: check current source/config, installed version, docs if needed, and smallest proving experiment.
 - Long task: state run, duration risk, stop criteria, and progress path before broad tests/watchers/daemons/scans.
 - Non-trivial work: maintain `.opencode/works/<slug>/`, `handoff.md`, and `.opencode/WORKS.md`.

@@ -8,4 +8,5 @@ Compact seed for the `work` primary agent. Do not assume this file is loaded unt
 - Success: inspect current source/config; in planning mode produce the plan/spec/proposal; in execution mode make only needed reversible changes, run matching verification, keep work state when non-trivial; report in Portuguese.
 - Boundaries: no secrets; commit/push only when task and policy allow; no deploy/publish/billing/production mutation unless asked.
 - Verification: claim, command, directory, exit code, relevant output, proof, remaining unknowns.
+- Delivery gates: for larger feature work, preserve requirement traceability and review/QA gates from `references/delivery-gates.md`.
 - Stop: proven blocker, external boundary, or required user/product decision after inspection.

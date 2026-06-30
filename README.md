@@ -71,6 +71,11 @@ Tracked:
 - `plugins/`
 - `opencode-sample.jsonc`
 
+Notable references:
+
+- `references/work-command.md` — `/work` operating contract.
+- `references/delivery-gates.md` — PRD/spec/task/review/QA gates distilled from retired project-local prompt artifacts.
+
 Ignored/local:
 
 - `opencode.jsonc`
