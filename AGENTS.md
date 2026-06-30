@@ -54,4 +54,5 @@ For Figma links or design matching, verify live Figma/MCP data for the file/node
 
 - Do not rely on conversation compaction for handoff.
 - For non-trivial work, keep state in `.opencode/works/<work-name>/`.
+- Do not create root `work-ledgers/` or root `WORKS.md`; those paths are stale for this setup unless the active user explicitly asks for a tracked neutral ledger.
 - Before stopping, switching sessions, or losing context, update the work `handoff.md`.

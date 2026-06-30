@@ -17,6 +17,7 @@ root="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
 cd "$root"
 mkdir -p .opencode/{memory,works,skills,commands,agents,prompts}
 # Do not add `.opencode/` to `.git/info/exclude` by default.
+# Work ledgers belong under `.opencode/works/<slug>/`; do not create root `work-ledgers/` or root `WORKS.md`.
 [ -f .opencode/opencode.jsonc ] || cat > .opencode/opencode.jsonc <<'JSON'
 {
   "$schema": "https://opencode.ai/config.json",

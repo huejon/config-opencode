@@ -9,10 +9,11 @@ Use when `/work` runs.
 - Status: report state, last evidence, blocker, next step.
 - Handoff: update `handoff.md`; stop with path + next command.
 - Board: update `.opencode/WORKS.md` whenever `.opencode/works/<slug>/` is created or materially updated. This board is local-only and must not be tracked by git.
+- Path guard: do not create root `work-ledgers/`, root `WORKS.md`, or other tracked ledger folders. If repo docs mention them, treat that as stale unless the active user explicitly asks for a tracked neutral ledger.
 
 ## Work directory
 
-`.opencode/works/<slug>/` contains:
+`.opencode/works/<slug>/` is local-only by default and contains:
 
 - `work.md` — objective/scope
 - `state.md` — current state
@@ -65,7 +66,7 @@ Planning mode indicators:
 Planning mode behavior:
 
 - Inspect sources and constraints, then produce the plan/spec/proposal.
-- Save useful planning state to `.opencode/works/<slug>/plan.md`, `proposals/`, or the path requested by the repo.
+- Save useful planning state to `.opencode/works/<slug>/plan.md` or `proposals/`. Use another path only when the active user explicitly requests it.
 - Do not edit implementation/config files, run implementation workflows, commit, or push unless the user explicitly switches to execution.
 
 Execution mode indicators:

@@ -52,7 +52,7 @@ Before completion, report command, directory, exit code, relevant output, proof,
 
 ## Work state
 
-For non-trivial work, maintain `.opencode/works/<work-name>/`: state, plan, run log, findings, reviews, memory candidates, handoff. Use `handoff.md`, not chat compaction.
+For non-trivial work, maintain local `.opencode/works/<work-name>/`: state, plan, run log, findings, reviews, memory candidates, handoff. Use `handoff.md`, not chat compaction. Do not create root `work-ledgers/` or root `WORKS.md` unless the active user explicitly asks for a tracked neutral ledger.
 
 ## Stop rules
 
