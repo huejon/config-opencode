@@ -22,17 +22,20 @@ Commit and push shared prompt, agent, command, or skill changes only after valid
 
 ### Using commands, skills, and agents
 
-Use `commands/work` as the main interface for repo work:
+For human work, open OpenCode in the repo first:
 
 ```bash
-opencode run --command work -- "<task>"
+cd <repo>
+opencode
 ```
 
-Use `commands/verify` when you need an independent check of a concrete claim:
+Then run the command from the TUI:
 
-```bash
-opencode run --command verify -- "<claim to verify>"
+```text
+/work <task>
 ```
+
+Use `/verify <claim>` when you need an independent check of a concrete claim. Reserve `opencode run --command ...` for headless automation, scripts, or agent-driven runs — not as the default human workflow.
 
 Concept boundaries:
 
