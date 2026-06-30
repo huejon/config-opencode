@@ -8,6 +8,7 @@ Use when `/work` runs.
 - Resume: read `handoff.md`, `state.md`, and `run-log.md` first.
 - Status: report state, last evidence, blocker, next step.
 - Handoff: update `handoff.md`; stop with path + next command.
+- Board: update root `WORKS.md` whenever `.opencode/works/<slug>/` is created or materially updated.
 
 ## Work directory
 
@@ -21,6 +22,16 @@ Use when `/work` runs.
 - `handoff.md` — resume point, not chat compaction
 - `memory-candidates.md` — candidates only
 - `findings/`, `reviews/`, `proposals/`
+
+## WORKS.md board
+
+Root `WORKS.md` is a concise board, not a ledger. Keep only:
+
+| Work | Last updated | Status |
+|---|---:|---|
+| `<slug>` | `YYYY-MM-DD` | `completed|active|blocked|stale` |
+
+Use `completed` only when verified. Use `active` when a safe next continuation exists. Use `blocked` when evidence shows a blocker or required decision. Use `stale` when no current safe continuation is clear. Add a terse reason only when needed.
 
 ## Subagents
 
@@ -61,7 +72,7 @@ Do not ask the user to call skills. Do not copy Hermes skills into OpenCode. Put
 
 - Source uncertainty: check current source/config, installed version, docs if needed, and smallest proving experiment.
 - Long task: state run, duration risk, stop criteria, and progress path before broad tests/watchers/daemons/scans.
-- Non-trivial work: maintain `.opencode/works/<slug>/` and `handoff.md`.
+- Non-trivial work: maintain `.opencode/works/<slug>/`, `handoff.md`, and root `WORKS.md`.
 - Figma/design: require live Figma/MCP source data before implementation; stop if unavailable.
 - Completion risk: continue until verified, blocked with evidence, external boundary, or safe handoff.
 - Skills: if explicitly requested, check existing coverage, trigger, minimal procedure, output, failure modes, sandbox test, rollback.
