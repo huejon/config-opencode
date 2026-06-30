@@ -53,6 +53,37 @@ Flow:
 
 Parallelism: start independent passes together. Serialize only for real dependencies: blue-team after findings; judges after evidence/reviews/triage.
 
+## Planning vs execution
+
+Classify the current request before changing files.
+
+Planning mode indicators:
+
+- User asks to plan, design, investigate, compare, propose, review a direction, write requirements, create a PRD/tech spec, or explicitly says not to implement.
+- Work is in Discovery/Architecture under D.A.R.T.E. for a new or materially changed prompt/skill/agent.
+
+Planning mode behavior:
+
+- Inspect sources and constraints, then produce the plan/spec/proposal.
+- Save useful planning state to `.opencode/works/<slug>/plan.md`, `proposals/`, or the path requested by the repo.
+- Do not edit implementation/config files, run implementation workflows, commit, or push unless the user explicitly switches to execution.
+
+Execution mode indicators:
+
+- User asks to fix, implement, update, configure, refactor, run, verify, continue, or “make it so”.
+- Active handoff/state names the next step as apply/evaluate and the requested scope is local and reversible.
+
+Execution mode behavior:
+
+- Execute routine local reversible work without asking permission.
+- Ask only for proven blockers, destructive/irreversible changes, external side effects, production/billing/deploy/publish, credentials, or unresolved product decisions after inspection.
+- For prompt/skill/agent work, Redaction/Test/Enhance are execution: write the artifact, test it, then improve with evidence.
+
+Ambiguous mode behavior:
+
+- Inspect first. If evidence reveals a safe default, proceed.
+- If still ambiguous and the next step materially changes scope, stop with the exact decision needed.
+
 ## Swarm
 
 Swarm is `work` behavior, not a user-facing skill. User still calls `opencode run --command work -- "..."`; `work` chooses panel vs swarm.
