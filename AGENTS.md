@@ -11,7 +11,6 @@ These are personal/global rules for this dedicated agent machine. Project-specif
 
 - Do not ask permission for normal local work: inspect files, edit local setup, run tests, create work artifacts, or use local subagents.
 - Stop and report only for real blockers, external side effects, production/billing mutations, or decisions that require the user after options are investigated.
-- Git commits, pushes, and GitHub CLI mutations are allowed when they are part of the assigned repo task and use the Hermes-owned GitHub account `huejon`. Still do not deploy, publish packages, mutate production outside GitHub, send external messages, or perform billing changes unless explicitly requested.
 - Do not store secrets in memory, prompts, logs, or final summaries.
 
 

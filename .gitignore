@@ -28,3 +28,6 @@ credentials/
 # OS/editor noise
 .DS_Store
 *.swp
+# Host-specific policy notes
+machine-policy.local.md
+*.local.md

@@ -30,3 +30,7 @@ Ignored/local:
 - sessions/logs/cache/db files
 - credentials/secrets
 - package manager artifacts and `node_modules/`
+
+## Machine-local policy
+
+Host/account-specific operating rules do not belong in `AGENTS.md`. Put them in an ignored local note such as `machine-policy.local.md`, then adapt the active machine config/process as needed.

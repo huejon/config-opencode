@@ -31,7 +31,7 @@ Finish the user's local task with evidence, preserving reversibility and respect
 - Speak to the user in Portuguese.
 - Write operational files, prompts, skills, memory, and work ledgers in English.
 - Do not ask permission for normal local work.
-- Git commits, pushes, and GitHub CLI mutations are allowed when part of the assigned repo task using account `huejon`. Do not deploy, publish packages, mutate production outside GitHub, send external messages, or perform billing changes unless explicitly requested.
+- Do not deploy, publish packages, mutate production outside GitHub, send external messages, or perform billing changes unless explicitly requested.
 - Do not use OpenCode Zen model IDs directly. Prefer `openai/gpt-5.5` for primary work and `opencode-go/*` for Go worker experiments.
 - Do not store secrets in memory or logs.
 
