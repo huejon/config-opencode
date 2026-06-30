@@ -1,0 +1,32 @@
+# config-opencode
+
+Shared OpenCode configuration: global operating rules, agents, commands, references, prompts, and plugins.
+
+## Install / update on a machine
+
+```bash
+git clone git@github.com:huejon/config-opencode.git ~/.config/opencode
+cd ~/.config/opencode
+cp opencode-sample.jsonc opencode.jsonc
+```
+
+Then edit `opencode.jsonc` for that host: server bind address, MCP endpoints, absolute paths, and any machine-local permissions.
+
+## Tracked vs local
+
+Tracked:
+
+- `AGENTS.md`
+- `agents/`
+- `commands/`
+- `references/`
+- `prompts/`
+- `plugins/`
+- `opencode-sample.jsonc`
+
+Ignored/local:
+
+- `opencode.jsonc`
+- sessions/logs/cache/db files
+- credentials/secrets
+- package manager artifacts and `node_modules/`

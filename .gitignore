@@ -1,0 +1,30 @@
+# Machine-local active config. Copy/edit from opencode-sample.jsonc per host.
+opencode.jsonc
+
+# Dependency/install artifacts
+node_modules/
+package.json
+package-lock.json
+bun.lock
+
+# Runtime state / local data
+sessions/
+logs/
+cache/
+tmp/
+*.db
+*.sqlite
+*.sqlite3
+*.log
+
+# Secrets / credentials
+.env
+.env.*
+auth/
+credentials/
+*.pem
+*.key
+
+# OS/editor noise
+.DS_Store
+*.swp

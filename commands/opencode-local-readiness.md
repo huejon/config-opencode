@@ -1,0 +1,54 @@
+---
+description: Run local Hermes + OpenCode readiness checks for this machine
+---
+
+Run a local readiness pass for the current machine. Prefer the helper script if present; otherwise run the checks inline.
+
+Procedure:
+
+1. If `~/.config/opencode-learning/scripts/opencode-local-readiness.sh` exists and is executable, run it:
+
+```bash
+~/.config/opencode-learning/scripts/opencode-local-readiness.sh
+```
+
+2. If the helper script is missing, create `~/.config/opencode-learning/audits/` and run equivalent checks manually:
+
+```bash
+hermes --version
+hermes doctor
+command -v opencode
+opencode --version
+opencode auth list
+opencode debug config
+opencode agent list
+opencode debug skill
+opencode models openai --refresh
+opencode models opencode-go --refresh
+opencode run --agent work --model openai/gpt-5.5 'Respond with exactly: OPENCODE_LOCAL_READINESS_OK'
+```
+
+3. Also validate any local copy artifact if present:
+
+```bash
+python - <<'PY'
+import os, tarfile
+p=os.path.expanduser('~/.config/opencode-learning/exports/local-copy-artifacts.tar.gz')
+print('artifact_exists', os.path.exists(p))
+if os.path.exists(p):
+    with tarfile.open(p,'r:gz') as t:
+        names=t.getnames()
+    bad=[n for n in names if any(x in n for x in ['node_modules','auth.json','opencode.db','/raw/','plugins/cache','package-lock','package.json','.jsonl'])]
+    print('entries', len(names))
+    print('bad_entries', len(bad))
+    print('has_opencode', any('/.opencode/' in n for n in names))
+    print('has_opencode_local', any('/.opencode/' in n for n in names))
+PY
+```
+
+Output contract:
+
+- Report commands run and exit codes.
+- Report the audit file path if the helper script was used.
+- Treat optional missing integrations from `hermes doctor` as notes unless they block the current setup goal.
+- If any required check fails, diagnose briefly and update the setup progress ledger.
