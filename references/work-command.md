@@ -38,6 +38,8 @@ Use `completed` only when verified. Use `active` when a safe next continuation e
 
 Do not ask the user to call subagents. `work` is the interface. `work` chooses subagents and records outputs under `reviews/` or `findings/`.
 
+Subagents must not ask for permission. Their permissions should resolve to explicit `allow` or `deny`, not `ask`.
+
 Required review/debug/judge agents:
 
 - Review: `review-deepseek`, `review-minimax`; add `review-kimi`/`review-glm` when useful.
@@ -51,6 +53,14 @@ Flow:
 - Bug: if root cause is unclear, run parallel `debug`; fix; verify; review; judge.
 - Risky/operational: review + red-team, then blue-team triage, then judges.
 - Local code/setup change: review and judge before completion. Pure inspection can finish with `verify`-style evidence.
+
+Judge verdict handling:
+
+- `ACCEPT`: completion proven.
+- `ACCEPT WITH NOTES`: completion is acceptable, but the notes are real follow-up signal.
+- In implementation/execution work, address each note or reject it with evidence, then rerun only the needed review/risk/judge passes.
+- In review/reporting work, stop on `ACCEPT WITH NOTES` and include the notes in the final report.
+- `NEEDS FIXES`/`REJECT`: fix or stop with a blocker, then rerun the required passes.
 
 Parallelism: start independent passes together. Serialize only for real dependencies: blue-team after findings; judges after evidence/reviews/triage.
 
@@ -67,6 +77,7 @@ Conversation mode behavior:
 
 - Reply directly in Portuguese using a pragmatic, direct, concise style with no wall of text, no praise padding, and no AI-sounding prose.
 - Do not create/update `.opencode/works/` artifacts, edit files, run commands, or invoke subagents unless needed to answer accurately.
+- The primary `work` agent may ask concise clarifying questions in conversation mode when that is the answer.
 - If the answer depends on current local state and cannot be answered safely from context, switch only to the minimum inspection needed; if inspection becomes planning or execution, reclassify before proceeding.
 
 Planning mode indicators:
@@ -79,6 +90,7 @@ Planning mode behavior:
 - Inspect sources and constraints, then produce the plan/spec/proposal.
 - Save useful planning state to `.opencode/works/<slug>/plan.md` or `proposals/`. Use another path only when the active user explicitly requests it.
 - Do not edit implementation/config files, run implementation workflows, commit, or push unless the user explicitly switches to execution.
+- The primary `work` agent may ask for missing product/scope decisions after inspection when the plan would materially change.
 
 Execution mode indicators:
 

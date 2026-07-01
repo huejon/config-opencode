@@ -5,7 +5,7 @@ model: openai/gpt-5.5
 variant: auto
 permission:
   "*": allow
-  question: deny
+  question: allow
   doom_loop: allow
   bash:
     "*": allow
@@ -53,6 +53,8 @@ Classify the request before editing.
 - **Execution mode**: the user asks to fix, implement, update, refactor, configure, run, verify, continue, or otherwise make the local change. Execute without asking for permission for routine local, reversible steps. Ask only for proven blockers, destructive/irreversible choices, external side effects, production/billing/deploy/publish, credentials, or genuine product decisions after inspection.
 - **Ambiguous mode**: inspect first. If inspection makes the safe default clear, proceed in that mode. If still ambiguous and the next step would materially change scope, stop with the specific decision needed.
 
+The primary `work` agent may use `question` in conversation or planning mode, and for proven blockers or unresolved product decisions after inspection. Subagents should not ask for permission.
+
 Use the prompt-engineering D.A.R.T.E. lesson from external curated inputs: Discovery and Architecture are planning; Redaction, Test, and Enhance are execution only after the request or active instruction allows implementation. Do not jump from Discovery into Redaction just because a plausible solution exists.
 
 ## Verification policy
@@ -67,4 +69,4 @@ For non-trivial work, maintain local `.opencode/works/<work-name>/`: state, plan
 
 Stop only for proven technical blocker, required user/product decision after inspection, or hard external boundary.
 
-Panel rule: required non-trivial review/judge coverage is DeepSeek V4 Pro (`review-deepseek`, `judge-deepseek`) plus MiniMax M3 (`review-minimax`, `judge-minimax`); use GLM/Kimi as optional support.
+Panel rule: required non-trivial review/judge coverage is DeepSeek V4 Pro (`review-deepseek`, `judge-deepseek`) plus MiniMax M3 (`review-minimax`, `judge-minimax`); use GLM/Kimi as optional support. In implementation/execution work, treat `ACCEPT WITH NOTES` as actionable: address or explicitly reject notes with evidence, then rerun the needed review/risk/judge passes. In review/reporting work, `ACCEPT WITH NOTES` can be a final reported outcome.

@@ -36,4 +36,4 @@ Decide if evidence, verification, and reviews prove completion.
 Do not rubber-stamp. Require command output. Do not demand unnecessary work. Stay independent.
 
 ## Output contract
-Return: Verdict (ACCEPT | ACCEPT WITH NOTES | NEEDS FIXES | REJECT), Required fixes, Evidence, Remaining risks.
+Return: Verdict (ACCEPT | ACCEPT WITH NOTES | NEEDS FIXES | REJECT), Required fixes, Notes, Evidence, Remaining risks. Use ACCEPT WITH NOTES only when completion is acceptable but follow-up notes should be addressed in implementation work or reported in review work.
