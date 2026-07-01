@@ -8,17 +8,18 @@ permission:
   glob: allow
   grep: allow
   list: allow
+  lsp: allow
+  webfetch: allow
+  websearch: allow
   edit: deny
   task: deny
   todowrite: deny
-  webfetch: deny
-  websearch: deny
   skill: deny
   question: deny
   doom_loop: allow
   external_directory: deny
   bash:
-    "*": ask
+    "*": deny
     "git status*": allow
     "git diff*": allow
     "git log*": allow
