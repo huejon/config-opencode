@@ -29,11 +29,14 @@ If docs and installed files disagree, trust installed files for this machine and
 ## Procedure
 
 1. Check installed version/current source.
+   - For OpenCode config/agent/command changes, run `opencode --version` and `opencode debug config`; add `opencode debug agent <name>` when agent fields or invocation matter, and `opencode debug paths` when paths/scopes matter.
 2. Inspect types/implementation when shape matters.
 3. Check official docs when needed.
 4. Run the smallest proving experiment.
 5. For risky config/API changes, get skeptical review against exact evidence.
 6. Record source, date, version, confidence, consequence, and re-check path.
+
+For this machine, trust installed OpenCode behavior over newer docs and record any divergence.
 
 ## Stop rules
 
