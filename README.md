@@ -6,13 +6,10 @@ Shared OpenCode configuration: global operating rules, agents, commands, curated
 
 ### Using this repo
 
-This repo is the shared OpenCode config. Use the installer to clone or update it in `~/.config/opencode`, then edit the machine-local `opencode.jsonc`.
+This repo is the shared OpenCode config. Use the installer from <https://github.com/huejon/config-opencode/blob/main/install.sh> to clone or update it in `~/.config/opencode`, then edit the machine-local `opencode.jsonc`.
 
 ```bash
-git clone <repo-url> config-opencode
-cd config-opencode
-./install.sh --dry-run --repo-url <repo-url>
-./install.sh --repo-url <repo-url>
+curl -fsSL https://raw.githubusercontent.com/huejon/config-opencode/main/install.sh | sh
 ```
 
 Then edit `opencode.jsonc` for that host: server bind address, MCP endpoints, absolute paths, and any machine-local permissions.
@@ -52,18 +49,17 @@ For non-trivial work, keep notes in `.opencode/works/<slug>/` and update `.openc
 
 ## Install / update on a machine
 
-Run from a clone of this repo:
+The GitHub page for the installer is <https://github.com/huejon/config-opencode/blob/main/install.sh>, but runnable commands must use the raw URL because `github.com/.../blob/...` returns HTML.
 
 ```bash
-./install.sh --dry-run --repo-url <repo-url>
-./install.sh --repo-url <repo-url> --branch main
+curl -fsSL https://raw.githubusercontent.com/huejon/config-opencode/main/install.sh
+curl -fsSL https://raw.githubusercontent.com/huejon/config-opencode/main/install.sh | sh
 ```
 
-Example with the default shared repository:
+Custom arguments:
 
 ```bash
-./install.sh --dry-run
-./install.sh
+curl -fsSL https://raw.githubusercontent.com/huejon/config-opencode/main/install.sh | sh -s -- --repo-url <repo-url> --branch main --dry-run
 ```
 
 The installer:
