@@ -4,18 +4,25 @@ mode: subagent
 model: opencode-go/kimi-k2.7-code
 variant: max
 permission:
-  "*": allow
+  read: allow
+  glob: allow
+  grep: allow
+  list: allow
+  edit: deny
+  task: deny
+  todowrite: deny
+  webfetch: deny
+  websearch: deny
+  skill: deny
   question: deny
   doom_loop: allow
   external_directory: deny
   bash:
-    "*": allow
-    "*deploy*": deny
-    "*terraform apply*": deny
-    "*kubectl apply*": deny
-    "*docker push*": deny
-    "*npm publish*": deny
-    "*pnpm publish*": deny
+    "*": ask
+    "git status*": allow
+    "git diff*": allow
+    "git log*": allow
+    "git show*": allow
 ---
 
 # Agent: red-team
@@ -31,4 +38,3 @@ Do not block by authority. Do not invent speculative risks as facts. Do not edit
 
 ## Output contract
 Return: Proven risks, Plausible risks, Speculative risks, Smallest mitigation.
-
