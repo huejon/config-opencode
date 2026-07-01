@@ -6,12 +6,13 @@ Shared OpenCode configuration: global operating rules, agents, commands, curated
 
 ### Using this repo
 
-This repo is the shared OpenCode config. Clone or pull it into `~/.config/opencode`, then copy `opencode-sample.jsonc` to the machine-local `opencode.jsonc`.
+This repo is the shared OpenCode config. Use the installer to clone or update it in `~/.config/opencode`, then edit the machine-local `opencode.jsonc`.
 
 ```bash
-git clone <repo-url> ~/.config/opencode
-cd ~/.config/opencode
-cp opencode-sample.jsonc opencode.jsonc
+git clone <repo-url> config-opencode
+cd config-opencode
+./install.sh --dry-run --repo-url <repo-url>
+./install.sh --repo-url <repo-url>
 ```
 
 Then edit `opencode.jsonc` for that host: server bind address, MCP endpoints, absolute paths, and any machine-local permissions.
@@ -51,13 +52,30 @@ For non-trivial work, keep notes in `.opencode/works/<slug>/` and update `.openc
 
 ## Install / update on a machine
 
+Run from a clone of this repo:
+
 ```bash
-git clone <repo-url> ~/.config/opencode
-cd ~/.config/opencode
-cp opencode-sample.jsonc opencode.jsonc
+./install.sh --dry-run --repo-url <repo-url>
+./install.sh --repo-url <repo-url> --branch main
 ```
 
-Then edit `opencode.jsonc` for that host: server bind address, MCP endpoints, absolute paths, and any machine-local permissions.
+Example with the default shared repository:
+
+```bash
+./install.sh --dry-run
+./install.sh
+```
+
+The installer:
+
+- preflights Git, repository access, target state, backup path, and tracked work in an existing target repo before mutating files;
+- updates in place with `git pull --ff-only` when `~/.config/opencode` is already this repo and clean;
+- moves any other existing `~/.config/opencode` to `~/.config/opencode.backup.<timestamp>` before cloning;
+- preserves an old `opencode.jsonc` inside the new repo as `opencode.jsonc.before-config-opencode-<timestamp>`;
+- creates `opencode.jsonc` from `opencode-sample.jsonc` only when it is missing;
+- supports `--force`, `--branch`, `--repo-url`, `--dry-run`, `--no-color`, and `--help`.
+
+After install, edit `opencode.jsonc` for that host: server bind address, MCP endpoints, absolute paths, and any machine-local permissions.
 
 If you keep host/account-specific operating rules, create `machine-policy.local.md`; `opencode-sample.jsonc` includes it in `instructions` so OpenCode will load it when present.
 
@@ -115,6 +133,8 @@ Example:
 ```
 
 The repo's `.gitignore` ignores `*.local.md`, so each machine can keep local account, path, MCP, or permission notes without syncing them to other hosts.
+
+For locked-down hosts, `machine-policy.local.md` may also say the agent must not mutate remote git state and must not use `gh` CLI commands that mutate GitHub.
 
 ## Skills boundary
 
