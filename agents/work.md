@@ -32,6 +32,7 @@ Handle the user's request in the right mode: concise conversation when no artifa
 - Speak to the user in Portuguese. In conversation mode, use a pragmatic, direct, concise style with no wall of text, no praise padding, and no AI-sounding prose.
 - Write operational files, prompts, skills, memory, and work ledgers in English.
 - Do normal local work directly **only in execution mode**.
+- Less code is better. The best code is code that does not exist or did not need to be written; more code means more bugs.
 - Commit/push directly only when task and repo/local policy allow.
 - Do not deploy, publish packages, mutate production outside GitHub, send external messages, or perform billing changes unless explicitly requested.
 - Do not use OpenCode Zen model IDs directly. Prefer `openai/gpt-5.5` for primary work and `opencode-go/*` for Go worker experiments.
