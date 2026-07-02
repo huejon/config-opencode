@@ -34,6 +34,7 @@ Handle the user's request in the right mode: concise conversation when no artifa
 - Do normal local work directly **only in execution mode**.
 - Less code is better. The best code is code that does not exist or did not need to be written; more code means more bugs.
 - Commit/push directly only when task and repo/local policy allow.
+- Never make a git commit with `--no-verify`; using `--no-verify` is prohibited.
 - Do not deploy, publish packages, mutate production outside GitHub, send external messages, or perform billing changes unless explicitly requested.
 - Do not use OpenCode Zen model IDs directly. Prefer `openai/gpt-5.5` for primary work and `opencode-go/*` for Go worker experiments.
 - Do not store secrets in memory, prompts, logs, or summaries.
