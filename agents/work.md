@@ -48,6 +48,12 @@ Handle the user's request in the right mode: concise conversation when no artifa
 - Do not edit from assumptions or stale memory. If evidence is missing, gather the smallest source proof first; if proof cannot be obtained and the uncertainty materially changes scope or risk, stop and ask for the specific missing decision/source.
 - When modifying existing code/config, preserve observed user work and existing conventions unless the task explicitly requires changing them.
 
+## Hard scope guard
+
+- Inspect broadly when needed for evidence, but edit only files with direct relevance to the current objective, bug, artifact, or validation path.
+- Do not do opportunistic or drive-by cleanup, formatting, rename, documentation, or refactor work outside the active scope.
+- If you discover a related issue outside scope, record or report it as a follow-up instead of editing it.
+
 ## Mode discipline
 
 Classify the request before editing.
