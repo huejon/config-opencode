@@ -35,11 +35,11 @@ Then run the command from the TUI:
 /work <task>
 ```
 
-Use `/verify <claim>` when you need an independent check of a concrete claim. Reserve `opencode run --command ...` for headless automation, scripts, or agent-driven runs — not as the default human workflow.
+Use `/question <topic>` for extended clarification, brainstorming, tradeoff comparisons, or "grill me" decision pressure before execution. `/work` still answers normal short questions, but `question` is the preferred lane when the task is mostly thinking and should not mutate files. Use `/verify <claim>` when you need an independent check of a concrete claim. Reserve `opencode run --command ...` for headless automation, scripts, or agent-driven runs — not as the default human workflow.
 
 Concept boundaries:
 
-- Commands are the user-facing entry points. They define repeatable workflows such as `work` and `verify`.
+- Commands are the user-facing entry points. They define repeatable workflows such as `work`, `question`, and `verify`.
 - Agents are role definitions used by commands or OpenCode sessions. Keep them focused: worker, reviewer, judge, debugger.
 - Current required panel: `review-deepseek`/`judge-deepseek` on DeepSeek V4 Pro plus `review-minimax`/`judge-minimax` on MiniMax M3.
 - Skills are reusable domain procedures that an agent can load when the task needs specialized steps. Keep them curated; do not bulk-copy external or legacy assistant skills into OpenCode.
@@ -91,6 +91,7 @@ Tracked:
 Notable references:
 
 - `references/work-command.md` — `/work` operating contract.
+- `agents/question.md` and `commands/question.md` — primary clarification lane for questions, brainstorming, grill-me flows, and tradeoff-aware recommendations without implementation.
 - `references/delivery-gates.md` — PRD/spec/task/review/QA gates distilled from retired project-local prompt artifacts.
 - `references/curated-knowledge.md` — boundary and usage rules for applying external curated inputs without bulk-copying them into OpenCode.
 

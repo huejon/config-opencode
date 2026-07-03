@@ -26,7 +26,7 @@ Personal rules for this agent machine. Project rules live in the project `AGENTS
 ## Skills and commands
 
 - Do not bulk-copy external or legacy assistant skills into OpenCode. Put recurring behavior in commands, agents, `AGENTS.md`, or references.
-- Keep the user interface small: `opencode run --command work -- "..."` and `opencode run --command verify -- "..."`.
+- Keep the user interface small: `opencode run --command work -- "..."`, `opencode run --command question -- "..."`, and `opencode run --command verify -- "..."`. `work` still answers normal questions; use `question` for extended clarification, brainstorming, and grill-me tradeoff discussion without implementation.
 - If asked to create/change a skill, first justify why a command/agent/reference is insufficient. Define trigger, minimal procedure, output, failure modes, sandbox test, and rollback.
 - For OpenCode learning, record version, sources, minimal experiment, exit code, confidence, consequence, and re-check command under `~/.config/opencode-learning/`.
 
