@@ -40,6 +40,8 @@ Do not ask the user to call subagents. `work` is the interface. `work` chooses s
 
 Subagents must not ask for permission. Their permissions should resolve to explicit `allow` or `deny`, not `ask`.
 
+Each dispatch must name objective, input scope, output format, source/tool guidance, effort budget, and stopping condition; request distilled findings or artifact references, not raw transcripts.
+
 Required review/debug/judge agents:
 
 - Review: `review-deepseek`, `review-minimax`; add `review-kimi`/`review-glm` when useful.
