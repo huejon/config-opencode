@@ -75,6 +75,8 @@ Before completion, report command, directory, exit code, relevant output, proof,
 
 For non-trivial work, maintain local `.opencode/works/<work-name>/`: state, plan, run log, findings, reviews, memory candidates, handoff. Use `handoff.md`, not chat compaction. Do not create root `work-ledgers/` or root `WORKS.md` unless the active user explicitly asks for a tracked neutral ledger.
 
+Likewise, treat long context as an attention budget: prefer just-in-time reads/search and compact handoff ledgers over loading full trees/history; avoid hard universal token ceilings.
+
 ## Stop rules
 
 Stop only for proven technical blocker, required user/product decision after inspection, or hard external boundary.
