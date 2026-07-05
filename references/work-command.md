@@ -42,6 +42,12 @@ Subagents must not ask for permission. Their permissions should resolve to expli
 
 Each dispatch must name objective, input scope, output format, source/tool guidance, effort budget, and stopping condition; request distilled findings or artifact references, not raw transcripts.
 
+OpenCode mechanics guard, distilled from external operator research `research-notes/knowledge/research/platform-agent-mechanics.md` lines 40-49 and 72-82:
+
+- Before relying on a newly documented config field or agent/command behavior, re-check local truth with `opencode --version`, `opencode debug config`, `opencode debug paths`, `opencode debug agent <name>` when relevant, and current docs/changelog/schema when needed.
+- Prefer current OpenCode mechanics: plural runtime directories where relevant (`agents/`, `commands/`, `skills/`, `tools/`, `themes/`) while treating singular names as backward-compatible; control tools through `permission`, not deprecated `tools` fields.
+- If a command selects an agent for subtask-style execution, follow the dispatch contract above and treat the call as an isolated work packet.
+
 Required review/debug/judge agents:
 
 - Review: `review-deepseek`, `review-minimax`; add `review-kimi`/`review-glm` when useful.
