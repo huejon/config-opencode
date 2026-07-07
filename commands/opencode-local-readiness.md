@@ -19,11 +19,15 @@ command -v opencode
 opencode --version
 opencode auth list
 opencode debug config
+opencode debug paths
+opencode debug agent work
 opencode agent list
 opencode debug skill
 opencode models openai --refresh
 opencode models opencode-go --refresh
-opencode run --agent work --model openai/gpt-5.5 'Respond with exactly: OPENCODE_LOCAL_READINESS_OK'
+TS="$(tailscale ip -4 2>/dev/null | head -1 || true)"
+test -n "$TS"
+opencode run --attach "http://$TS:4096" --dir "$(pwd)" --agent work --model openai/gpt-5.5 'Respond with exactly: OPENCODE_LOCAL_READINESS_OK'
 ```
 
 3. Validate local copy artifact if present:
