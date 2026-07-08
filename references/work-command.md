@@ -48,7 +48,18 @@ OpenCode mechanics guard, distilled from external operator research `research-no
 - Prefer current OpenCode mechanics: plural runtime directories where relevant (`agents/`, `commands/`, `skills/`, `tools/`, `themes/`) while treating singular names as backward-compatible; control tools through `permission`, not deprecated `tools` fields.
 - If a command selects an agent for subtask-style execution, follow the dispatch contract above and treat the call as an isolated work packet.
 
-Required review/debug/judge agents:
+### Risk tiers for review and judge usage
+
+Classify the task before deciding how much of the panel below is required. These tiers scale review cost; they do not weaken high-risk security, permission, or external-side-effect constraints. Use the Flow section below for ordering.
+
+| Tier | Task class | Review/judge guidance |
+|---|---|---|
+| T0 | Inspection, conversation, status, or no file mutation. | No review/judge panel required; provide evidence from commands, files, or reasoning. |
+| T1 | Small docs, prompt, reference, or comment edit with no runtime side effects. | Use either a single reviewer or a single judge pass when the change affects future agent behavior; static validation such as diff/schema checks may be enough when the diff is tiny and reversible. |
+| T2 | Runtime behavior, command, agent, skill, permission, or automation change. | Use the required review panel before finalizing; use the required judge panel after addressing review findings; provide validation and rollback. |
+| T3 | Security, credentials, external side effects, broad permissions, production mutation, billing, publishing, destructive operations, or cross-repo automation. | Treat as high risk; use red-team/blue-team style review; required judges must pass before applying or recommending merge; prefer the smallest reversible diff or stop with a blocked report. |
+
+Required review/debug/judge agents for T2/T3 work and for T1 when a review-or-judge pass is chosen:
 
 - Review: `review-deepseek`, `review-minimax`; add `review-kimi`/`review-glm` when useful.
 - Debug: `debug`.
