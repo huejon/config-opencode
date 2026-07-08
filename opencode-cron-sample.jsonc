@@ -1,0 +1,66 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "default_agent": "work",
+  "share": "disabled",
+  "mcp": {},
+  "agent": {
+    "work": {
+      "permission": {
+        "read": {
+          "*": "allow",
+          "*.env": "deny",
+          "*.env.*": "deny",
+          "*.env.example": "allow"
+        },
+        "grep": "allow",
+        "glob": "allow",
+        "list": "allow",
+        "webfetch": "allow",
+        "websearch": "allow",
+        "edit": "allow",
+        "bash": {
+          "*": "deny",
+          "git status*": "allow",
+          "git diff*": "allow",
+          "git log*": "allow",
+          "git show*": "allow",
+          "python scripts/validate-*": "allow",
+          "python3 scripts/validate-*": "allow",
+          "bash scripts/validate-*": "allow",
+          "opencode --version": "allow",
+          "opencode debug *": "allow"
+        },
+        "task": "deny",
+        "external_directory": "deny"
+      }
+    }
+  },
+  "permission": {
+    "read": {
+      "*": "allow",
+      "*.env": "deny",
+      "*.env.*": "deny",
+      "*.env.example": "allow"
+    },
+    "grep": "allow",
+    "glob": "allow",
+    "list": "allow",
+    "webfetch": "allow",
+    "websearch": "allow",
+    "edit": "allow",
+    "bash": {
+      "*": "deny",
+      "git status*": "allow",
+      "git diff*": "allow",
+      "git log*": "allow",
+      "git show*": "allow",
+      "python scripts/validate-*": "allow",
+      "python3 scripts/validate-*": "allow",
+      "bash scripts/validate-*": "allow",
+      "opencode --version": "allow",
+      "opencode debug *": "allow"
+    },
+    "task": "deny",
+    "external_directory": "deny"
+  }
+}

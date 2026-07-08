@@ -14,6 +14,12 @@ curl -fsSL https://raw.githubusercontent.com/huejon/config-opencode/main/install
 
 Then edit `opencode.jsonc` for that host: server bind address, MCP endpoints, absolute paths, and any machine-local permissions.
 
+### Cron sample config
+
+Use `opencode-cron-sample.jsonc` as a safer starting point for scheduled jobs. It is intentionally narrower than the interactive sample and should be copied/adapted into the user's OpenCode config location before use.
+
+It keeps `work` as the default agent and also narrows `agent.work.permission` so agent-level permissions do not re-open broad bash. Keep job-specific permission expansion narrow and justified. Do not enable broad bash, MCPs, external directories, credentials, tokens, or user-specific paths unless a specific job requires them and the risk is understood.
+
 Keep host/account-specific operating rules in ignored local files such as `machine-policy.local.md` or another `*.local.md`, then load them from the host's ignored `opencode.jsonc` via `instructions`.
 
 Commit and push shared prompt, agent, command, or skill changes only after validation. Do not commit local policy, work notes, secrets, sessions, logs, or host-specific config.
@@ -97,6 +103,7 @@ Tracked:
 - `prompts/`
 - `plugins/`
 - `opencode-sample.jsonc`
+- `opencode-cron-sample.jsonc`
 
 Notable references:
 
