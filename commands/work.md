@@ -1,12 +1,24 @@
 ---
-description: Handle work requests in conversation, planning, or execution mode, using `.opencode/works/<slug>/` state only when needed.
+description: Handle work requests by classifying first, loading the full workflow only when needed.
 agent: work
 ---
 
 Request:
 $ARGUMENTS
 
-Load the work command reference with:
+First classify the request as one of:
+
+- conversation
+- planning
+- execution
+- resume
+- status
+- handoff
+
+If conversation mode is enough, answer directly and concisely without loading
+the full work reference.
+
+If planning, execution, resume, status, or handoff is needed, load:
 
 ```bash
 python - <<'PY'
@@ -15,4 +27,5 @@ print(Path('~/.config/opencode/references/work-command.md').expanduser().read_te
 PY
 ```
 
-Then follow it. Classify the request as conversation, planning, or execution mode before acting. Use markdown handoffs, not chat compaction. Keep the user response short.
+Then follow it. Prefer concise human-facing responses. Use markdown handoffs,
+not chat compaction.
