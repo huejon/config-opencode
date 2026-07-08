@@ -22,3 +22,11 @@ If curated inputs are unavailable, irrelevant to the task, or stale for the need
 
 - External curation automation maintains curated research, freshness classification, and harness docs outside this repo.
 - `config-opencode` application automation runs here, may read operator-provided curated findings, and applies only minimal active OpenCode guidance.
+
+## Downstream application contract
+
+When a downstream job applies curated findings from `research-notes`, locate that repo via `$RESEARCH_NOTES_DIR` first, otherwise `../research-notes`, then read `cron-harness/downstream-candidates.md`. Apply at most one candidate per run, only when its `Status:` is `ready`; prefer the highest operational impact with the lowest rollback risk. If none is ready, do not invent work: report the closest blocker. If selected evidence is stale or unverifiable, verify first or stop blocked.
+
+Distill behavior; do not bulk-copy research notes, prompts, skills, or config dumps. Apply the smallest behavior-changing diff, preferably in existing references, commands, agents, or docs. Create a new skill only for a repeatable procedure with clear trigger, inputs, outputs, failure modes, validation, and rollback. Do not broaden permissions unless the candidate explicitly requires it and the risk is justified, and never add credentials, production mutation, deployment, billing, publishing, or destructive side effects.
+
+After any change, run static validation and OpenCode debug checks when available. Report the selected candidate ID, files changed, validation, remaining risks, and rollback. Mark a research candidate applied only with explicit writable access to `research-notes` and explicit runner authorization.

@@ -110,7 +110,7 @@ Notable references:
 - `references/work-command.md` — `/work` operating contract.
 - `agents/question.md` and `commands/question.md` — primary clarification lane for questions, brainstorming, grill-me flows, and tradeoff-aware recommendations without implementation.
 - `references/delivery-gates.md` — PRD/spec/task/review/QA gates distilled from retired project-local prompt artifacts.
-- `references/curated-knowledge.md` — boundary and usage rules for applying external curated inputs without bulk-copying them into OpenCode.
+- `references/curated-knowledge.md` — boundary, usage rules, and downstream candidate application contract for external curated inputs without bulk-copying them into OpenCode.
 
 ## External curated inputs
 
