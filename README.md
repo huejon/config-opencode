@@ -20,6 +20,16 @@ Commit and push shared prompt, agent, command, or skill changes only after valid
 
 When tracked concepts, paths, or boundaries change, update this README in the same change.
 
+### Validation
+
+After edits to commands, agents, references, permissions, or sample config, run the preferred validation entrypoint from anywhere in the repo checkout:
+
+```bash
+scripts/validate-opencode-config.sh
+```
+
+It runs static repository checks, the subagent permission validator, `git diff --check` when inside a git worktree, obvious committed-secret heuristics, and optional `opencode debug` checks when OpenCode is installed.
+
 ### Using commands, skills, and agents
 
 For human work, open OpenCode in the repo first:
